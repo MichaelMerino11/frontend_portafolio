@@ -1,62 +1,109 @@
 .hero {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 100vh;
   background: linear-gradient(to right, #2c5282, #000);
   color: white;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 
-  img {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    border: 4px solid white;
-    margin-bottom: 1.5rem;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .buttons {
+  .container {
     display: flex;
-    gap: 1rem;
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+  }
+
+  /* Sección Izquierda - Texto */
+  .textSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 3rem;
+    text-align: left;
 
-    a {
-      background-color: white;
-      color: #2c5282;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
+    h1 {
+      font-size: 3.5rem;
       font-weight: bold;
-      transition: background-color 0.3s;
+      margin-bottom: 0.5rem;
+    }
 
-      &:hover {
-        background-color: #e2e8f0;
+    p {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        background-color: white;
+        color: #2c5282;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #e2e8f0;
+        }
+      }
+    }
+
+    .social {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+
+      a {
+        color: white;
+        font-size: 2rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #cbd5e0;
+        }
       }
     }
   }
 
-  .social {
-    margin-top: 2rem;
+  /* Sección Derecha - Imagen Ajustada */
+  .imageSection {
+    flex: 1.2;
+    height: 100vh;
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
     justify-content: center;
+    overflow: hidden;
 
-    a {
-      color: white;
-      transition: color 0.3s;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top; // Mueve la imagen hacia abajo
+    }
+  }
 
-      &:hover {
-        color: #cbd5e0;
+  /* Diseño Responsivo */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .textSection {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .imageSection {
+      flex: none;
+      width: 100%;
+      height: 50vh;
+
+      img {
+        object-position: center top; // También aplica en móviles
       }
     }
   }

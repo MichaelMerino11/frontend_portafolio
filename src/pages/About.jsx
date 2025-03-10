@@ -1,15 +1,14 @@
 import React from "react";
 import About from "../components/About";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import BackButton from "../components/BackButton";
+import Layout from "../components/Layout";
 
 const AboutPage = () => {
   return (
-    <div>
-      <About />
+    <Layout>
       <BackButton />
-    </div>
+      <About />
+    </Layout>
   );
 };
 

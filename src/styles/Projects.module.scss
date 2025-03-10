@@ -1,50 +1,91 @@
 .projects {
-  padding: 4rem 0;
-  background-color: #f7fafc;
+  padding: 5rem 0;
+  background: linear-gradient(to right, #2c5282, #000);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    width: 90%;
+    text-align: center;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
+  p {
+    font-size: 1.2rem;
+    color: #cbd5e0;
+    margin-bottom: 3rem;
+  }
+
+  /* Estilo de cada sección (Universitarios y Personales) */
+  .section {
+    margin-bottom: 4rem;
+
+    h3 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #f0a500;
+    }
+  }
+
+  /* Grid de proyectos */
   .grid {
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
   }
 
+  /* Tarjetas de proyectos */
   .card {
-    background-color: white;
-    border-radius: 0.5rem;
+    background: white;
+    color: black;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
-      transform: translateY(-0.5rem);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    img {
+    .imageContainer {
       width: 100%;
       height: 200px;
-      object-fit: cover;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
 
     .content {
       padding: 1.5rem;
+      text-align: left;
+      flex: 1;
 
       h3 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: bold;
         margin-bottom: 1rem;
+        color: #2c5282;
       }
 
       p {
@@ -53,30 +94,46 @@
         margin-bottom: 1rem;
       }
 
+      /* Tecnologías usadas */
       .technologies {
         display: flex;
-        gap: 0.5rem;
         flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
 
         span {
           background-color: #ebf8ff;
           color: #3182ce;
-          padding: 0.25rem 0.5rem;
-          border-radius: 0.25rem;
-          font-size: 0.875rem;
+          padding: 0.3rem 0.6rem;
+          border-radius: 5px;
+          font-size: 0.9rem;
         }
       }
 
+      /* Botón GitHub */
       a {
         display: inline-flex;
         align-items: center;
         color: #3182ce;
-        margin-top: 1rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
 
         &:hover {
+          color: #2c5282;
           text-decoration: underline;
         }
+
+        .icon {
+          margin-right: 5px;
+        }
       }
+    }
+  }
+
+  /* Diseño Responsivo */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
   }
 }
