@@ -1,17 +1,17 @@
 import styles from "../styles/Footer.module.scss";
-import github from "../assets/images/iconos/github.png";
-import linkedin from "../assets/images/iconos/linkedin.png";
-import instagram from "../assets/images/iconos/instagram.png";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
+        {/* Sección de Información */}
         <div className={styles.info}>
-          <h3>Mi Sitio Web</h3>
+          <h3>Portafolio Profesional</h3>
           <p>Desarrollado con pasión y dedicación.</p>
         </div>
 
+        {/* Sección de Enlaces */}
         <div className={styles.links}>
           <h4>Enlaces</h4>
           <ul>
@@ -30,34 +30,36 @@ const Footer = () => {
           </ul>
         </div>
 
+        {/* Redes Sociales */}
         <div className={styles.social}>
           <h4>Sígueme</h4>
-          <div>
+          <div className={styles.icons}>
             <a
               href="https://www.linkedin.com/in/michael-merino-0b7871207/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={linkedin} alt="LinkedIn" />
+              <FaLinkedin />
             </a>
             <a
               href="https://github.com/MichaelMerino11"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={github} alt="GitHub" />
+              <FaGithub />
             </a>
             <a
               href="https://www.instagram.com/maikijr11/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={instagram} alt="Instagram" />
+              <FaInstagram />
             </a>
           </div>
         </div>
       </div>
 
+      {/* Derechos Reservados */}
       <div className={styles.bottom}>
         <p>&copy; 2024 Michael Merino. Todos los derechos reservados.</p>
       </div>
