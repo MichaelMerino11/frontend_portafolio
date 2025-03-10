@@ -14,7 +14,7 @@
     flex-wrap: wrap;
   }
 
-  .info,
+  .technologies,
   .links,
   .social {
     flex: 1;
@@ -32,6 +32,18 @@
   p {
     font-size: 1.1rem;
     color: #cbd5e0;
+  }
+
+  /* Tecnologías Utilizadas */
+  .technologies ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    color: #cbd5e0;
+
+    li {
+      margin-bottom: 8px;
+    }
   }
 
   /* Enlaces */

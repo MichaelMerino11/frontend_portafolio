@@ -1,8 +1,8 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import styles from "../styles/Projects.module.scss";
-import lumini1 from "../assets/images/lumini/lumini1.jpeg";
-import res1 from "../assets/images/restaurante/res1.jpeg";
+import lumini1 from "../assets/images/lumini/lumini1.jpg";
+import res1 from "../assets/images/restaurante/res1.jpg";
 import temp1 from "../assets/images/temperatura/temp1.jpg";
 import br1 from "../assets/images/brasil/br1.jpeg";
 
@@ -18,7 +18,7 @@ const universityProjects = [
 
 const personalProjects = [
   {
-    title: "Restaurante",
+    title: "Restaurante blog",
     description: "Frontend para restaurante con gestión de meseros.",
     technologies: ["Angular", "TypeScript", "HTML", "CSS"],
     images: [res1],
@@ -33,7 +33,7 @@ const personalProjects = [
     github: "https://github.com/MichaelMerino11/Proyecto_integrador.git",
   },
   {
-    title: "Discover Brasil",
+    title: "Discover Brasil blog",
     description:
       "Explora la cultura brasileña con información sobre comida y tradiciones.",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -50,8 +50,8 @@ const Projects = () => {
         <p>Explora algunos de los proyectos en los que he trabajado.</p>
 
         {/* Sección de Proyectos Universitarios */}
-        <h3>🚀 Proyectos Personales</h3>
         <div className={styles.section}>
+          <h3>🚀 Proyectos Personales</h3>
           <div className={styles.grid}>
             {universityProjects.map((project, index) => (
               <div key={index} className={styles.card}>

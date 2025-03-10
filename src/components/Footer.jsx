@@ -5,10 +5,23 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Sección de Información */}
-        <div className={styles.info}>
-          <h3>Portafolio Profesional</h3>
-          <p>Desarrollado con pasión y dedicación.</p>
+        {/* Sección de Tecnologías Utilizadas */}
+        <div className={styles.technologies}>
+          <h3>Tecnologías Utilizadas</h3>
+          <ul>
+            <li>
+              <strong>Frontend:</strong> React, Vite
+            </li>
+            <li>
+              <strong>Backend:</strong> Node.js, Express
+            </li>
+            <li>
+              <strong>Correo Electrónico:</strong> Nodemailer
+            </li>
+            <li>
+              <strong>Estilos:</strong> CSS
+            </li>
+          </ul>
         </div>
 
         {/* Sección de Enlaces */}
