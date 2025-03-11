@@ -14,19 +14,22 @@ const About = () => {
       <div className={styles.container}>
         <h2>Sobre Mí</h2>
         <p className={styles.description}>
-          Soy un <strong>desarrollador Full Stack</strong> apasionado por la
+          Soy un <strong>desarrollador Full Stack</strong>, apasionado por la
           creación de
-          <strong>aplicaciones web modernas e intuitivas</strong>. Disfruto
+          <strong> aplicaciones web modernas e intuitivas</strong>. Disfruto
           trabajar tanto en el <strong>frontend</strong> como en el{" "}
           <strong>backend</strong>, desarrollando{" "}
           <strong>soluciones eficientes y escalables</strong> que mejoran la
-          experiencia del usuario y optimizan los procesos tecnológicos. También estoy familiarizado con concpetos de la <strong>nube y arquitectura de microservicios</strong>.
+          experiencia del usuario y optimizan los procesos tecnológicos. También
+          estoy familiarizado con conceptos de la{" "}
+          <strong>nube y arquitectura de microservicios</strong>.
           <br />
-          Me motiva la <strong>innovación y el aprendizaje constante</strong>, por lo que
-          siempre busco mejorar mis habilidades y mantenerme actualizado con las
-          últimas tendencias en desarrollo. Me considero una persona
-          <strong> proactiva, perseverante y autodidacta</strong>, con gran capacidad para
-          adaptarme a entornos dinámicos y colaborar en equipo.
+          Me motiva la <strong>innovación y el aprendizaje constante</strong>,
+          por lo que, siempre busco mejorar mis habilidades y mantenerme
+          actualizado con las últimas tendencias en desarrollo. Me considero una
+          persona
+          <strong> proactiva, perseverante y autodidacta</strong>, con gran
+          capacidad para adaptarme a entornos dinámicos y colaborar en equipo.
           <br />
         </p>
 
