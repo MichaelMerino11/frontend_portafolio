@@ -21,8 +21,10 @@
 
   .description {
     font-size: 1.3rem;
+    line-height: 1.8;
     margin-bottom: 2rem;
     color: #cbd5e0;
+    text-align: justify;
   }
 
   h3 {
@@ -36,7 +38,7 @@
   /* Habilidades Técnicas */
   .skills {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     justify-content: center;
     align-items: center;

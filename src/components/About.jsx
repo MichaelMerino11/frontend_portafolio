@@ -1,6 +1,12 @@
 import React from "react";
 import styles from "../styles/About.module.scss";
-import { FaCode, FaDatabase, FaCloud, FaUsers } from "react-icons/fa";
+import {
+  FaCode,
+  FaDatabase,
+  FaCloud,
+  FaMobileAlt,
+  FaUsers,
+} from "react-icons/fa";
 
 const About = () => {
   return (
@@ -8,10 +14,20 @@ const About = () => {
       <div className={styles.container}>
         <h2>Sobre Mí</h2>
         <p className={styles.description}>
-          Soy un desarrollador Full Stack apasionado por la creación de
-          aplicaciones web modernas e intuitivas. Disfruto trabajar tanto en el
-          frontend como en el backend, desarrollando soluciones eficientes y
-          escalables.
+          Soy un <strong>desarrollador Full Stack</strong> apasionado por la
+          creación de
+          <strong>aplicaciones web modernas e intuitivas</strong>. Disfruto
+          trabajar tanto en el <strong>frontend</strong> como en el{" "}
+          <strong>backend</strong>, desarrollando{" "}
+          <strong>soluciones eficientes y escalables</strong> que mejoran la
+          experiencia del usuario y optimizan los procesos tecnológicos. También estoy familiarizado con concpetos de la <strong>nube y arquitectura de microservicios</strong>.
+          <br />
+          Me motiva la <strong>innovación y el aprendizaje constante</strong>, por lo que
+          siempre busco mejorar mis habilidades y mantenerme actualizado con las
+          últimas tendencias en desarrollo. Me considero una persona
+          <strong> proactiva, perseverante y autodidacta</strong>, con gran capacidad para
+          adaptarme a entornos dinámicos y colaborar en equipo.
+          <br />
         </p>
 
         {/* Habilidades Técnicas */}
@@ -41,6 +57,12 @@ const About = () => {
               <strong>Cloud & DevOps:</strong> AWS, CI/CD
             </p>
           </div>
+          <div className={styles.skillCard}>
+            <FaMobileAlt className={styles.icon} />
+            <p>
+              <strong>Desarrollo Móvil:</strong> React Native, Ionic, Flutter
+            </p>
+          </div>
         </div>
 
         {/* Habilidades Blandas */}
@@ -50,6 +72,8 @@ const About = () => {
           <div className={styles.softSkill}>Resolución de problemas</div>
           <div className={styles.softSkill}>Creatividad e innovación</div>
           <div className={styles.softSkill}>Comunicación efectiva</div>
+          <div className={styles.softSkill}>Autodidacta</div>
+          <div className={styles.softSkill}>Dominio de inglés B2</div>
         </div>
       </div>
     </section>
