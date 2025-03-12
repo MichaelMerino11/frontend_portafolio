@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import styles from "../styles/Header.module.scss";
-import logo from "../assets/images/logo.png"; // Importamos el logo
+import logo from "../assets/images/logo.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Cambiar el título de la pestaña
-  useEffect(() => {
-    document.title = "Portafolio Michael"; // Cambia el título de la pestaña
-  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -19,10 +14,10 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* Logo y título */}
+        {/* Logo */}
         <div className={styles.logoContainer}>
           <img src={logo} alt="Logo" className={styles.logo} />
-          <h1 className={styles.title}>Portafolio Profesional</h1>
+          <h1 className={styles.title}>Portafolio</h1>
         </div>
 
         {/* Botón de menú hamburguesa en móviles */}
