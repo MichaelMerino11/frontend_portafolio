@@ -31,14 +31,17 @@ const Contact = () => {
         }
       );
 
+      const data = await response.json(); // 🔹 Convertimos la respuesta en JSON
+
       if (response.ok) {
         setStatusMessage("✅ Se ha enviado exitosamente");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatusMessage("❌ Hubo un error de envío");
+        // 🔹 Muestra los mensajes de error específicos
+        setStatusMessage(`❌ ${data.errors.map((err) => err.msg).join(". ")}`);
       }
     } catch (error) {
-      setStatusMessage("❌ Error al conectar con el servidor" + error);
+      setStatusMessage("❌ Error al conectar con el servidor: " + error);
     }
 
     setLoading(false);
