@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "../styles/About.module.scss";
 import {
   FaCode,
@@ -10,27 +11,24 @@ import {
 
 const About = () => {
   return (
-    <section id="about" className={styles.about}>
+    <motion.section
+      id="about"
+      className={styles.about}
+      initial={{ opacity: 0, y: 50 }} // Aparece desde abajo
+      animate={{ opacity: 1, y: 0 }} // Se hace visible
+      transition={{ duration: 0.8, ease: "easeOut" }} // Suaviza la transición
+    >
       <div className={styles.container}>
         <h2>Sobre Mí</h2>
         <p className={styles.description}>
           Soy un <strong>desarrollador Full Stack</strong>, apasionado por la
           creación de
           <strong> aplicaciones web modernas e intuitivas</strong>. Disfruto
-          trabajar tanto en el <strong>frontend</strong> como en el{" "}
-          <strong>backend</strong>, desarrollando{" "}
-          <strong>soluciones eficientes y escalables</strong> que mejoran la
-          experiencia del usuario y optimizan los procesos tecnológicos. También
-          estoy familiarizado con conceptos de la{" "}
-          <strong>nube y arquitectura de microservicios</strong>.
-          <br />
-          Me motiva la <strong>innovación y el aprendizaje constante</strong>,
-          por lo que, siempre busco mejorar mis habilidades y mantenerme
-          actualizado con las últimas tendencias en desarrollo. Me considero una
-          persona
-          <strong> proactiva, perseverante y autodidacta</strong>, con gran
-          capacidad para adaptarme a entornos dinámicos y colaborar en equipo.
-          <br />
+          trabajar tanto en el
+          <strong>frontend</strong> como en el <strong>backend</strong>,
+          desarrollando
+          <strong> soluciones eficientes y escalables</strong> que optimizan
+          procesos tecnológicos.
         </p>
 
         {/* Habilidades Técnicas */}
@@ -67,19 +65,8 @@ const About = () => {
             </p>
           </div>
         </div>
-
-        {/* Habilidades Blandas */}
-        <h3>🎯 Habilidades Blandas</h3>
-        <div className={styles.softSkills}>
-          <div className={styles.softSkill}>Trabajo en equipo</div>
-          <div className={styles.softSkill}>Resolución de problemas</div>
-          <div className={styles.softSkill}>Creatividad e innovación</div>
-          <div className={styles.softSkill}>Comunicación efectiva</div>
-          <div className={styles.softSkill}>Autodidacta</div>
-          <div className={styles.softSkill}>Dominio de inglés B2</div>
-        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
