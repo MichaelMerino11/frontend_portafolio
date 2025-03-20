@@ -25,7 +25,7 @@ const About = () => {
           creación de
           <strong> aplicaciones web modernas e intuitivas</strong>. Disfruto
           trabajar tanto en el
-          <strong>frontend</strong> como en el <strong>backend</strong>,
+          <strong> frontend</strong> como en el <strong>backend</strong>,
           desarrollando
           <strong> soluciones eficientes y escalables</strong> que optimizan
           procesos tecnológicos.
