@@ -6,9 +6,9 @@ import res1 from "../assets/images/restaurante/res1.jpg";
 import temp1 from "../assets/images/temperatura/temp1.jpg";
 import { motion } from "framer-motion";
 import br1 from "../assets/images/brasil/br1.jpeg";
-import force from "../assets/images/force.jpg";
-import nexus from "../assets/images/nexus.jpg";
-import jcs from "../assets/images/jcs.jpg";
+import force from "../assets/images/force/force.jpeg";
+import nexus from "../assets/images/nexus/nexus.jpeg";
+import jcs from "../assets/images/jcs/jcs.jpeg";
 
 const universityProjects = [
   {
