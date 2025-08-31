@@ -21,7 +21,7 @@ const Hero = () => {
               <div className={styles.buttons}>
                 <a href="#projects">Ver Proyectos</a>
                 <a
-                  href="https://drive.google.com/file/d/1YMoAbLX3u4AhKJIoAUEWWeVzVs9aZzWq/view?usp=drivesdk"
+                  href="https://drive.google.com/file/d/1YMoAbLX3u4AhKJIoAUEWWeVzVs9aZzWq/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
