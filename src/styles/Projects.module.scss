@@ -24,7 +24,7 @@
     margin-bottom: 3rem;
   }
 
-  /* Estilo de cada sección (Universitarios y Personales) */
+  /* Estilo de cada sección (Profesionales, Personales y Universitarios) */
   .section {
     margin-bottom: 4rem;
 
@@ -32,7 +32,19 @@
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 2rem;
-      color: #f0a500;
+
+      /* Diferentes colores para cada tipo de proyecto */
+      &:nth-child(1) {
+        color: #4ade80; // Verde para proyectos profesionales
+      }
+
+      &:nth-child(2) {
+        color: #f0a500; // Naranja para proyectos personales
+      }
+
+      &:nth-child(3) {
+        color: #60a5fa; // Azul para proyectos universitarios
+      }
     }
   }
 
