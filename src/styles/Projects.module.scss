@@ -1,151 +1,439 @@
 .projects {
-  padding: 5rem 0;
-  background: linear-gradient(to right, #2c5282, #000);
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(56, 189, 248, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(139, 92, 246, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(16, 185, 129, 0.05) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
 
   .container {
     max-width: 1200px;
     width: 90%;
-    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
 
   h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+      border-radius: 2px;
+    }
   }
 
   p {
     font-size: 1.2rem;
     color: #cbd5e0;
-    margin-bottom: 3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  color: #cbd5e0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+    color: #38bdf8;
+    transform: translateY(-2px);
   }
 
-  /* Estilo de cada sección (Profesionales, Personales y Universitarios) */
-  .section {
-    margin-bottom: 4rem;
+  &.active {
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+  }
+}
+
+.filterIcon {
+  font-size: 0.9rem;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.categorySection {
+  .categoryHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
 
     h3 {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-
-      /* Diferentes colores para cada tipo de proyecto */
-      &:nth-child(1) {
-        color: #4ade80; // Verde para proyectos profesionales
-      }
-
-      &:nth-child(2) {
-        color: #f0a500; // Naranja para proyectos personales
-      }
-
-      &:nth-child(3) {
-        color: #60a5fa; // Azul para proyectos universitarios
-      }
+      font-size: 1.8rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
   }
 
-  /* Grid de proyectos */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-  }
-
-  /* Tarjetas de proyectos */
-  .card {
-    background: white;
-    color: black;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .categoryIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    &.professional {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     }
 
-    .imageContainer {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
+    &.personal {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     }
 
-    .content {
-      padding: 1.5rem;
-      text-align: left;
-      flex: 1;
-
-      h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        color: #2c5282;
-      }
-
-      p {
-        font-size: 1rem;
-        color: #4a5568;
-        margin-bottom: 1rem;
-      }
-
-      /* Tecnologías usadas */
-      .technologies {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-
-        span {
-          background-color: #ebf8ff;
-          color: #3182ce;
-          padding: 0.3rem 0.6rem;
-          border-radius: 5px;
-          font-size: 0.9rem;
-        }
-      }
-
-      /* Botón GitHub */
-      a {
-        display: inline-flex;
-        align-items: center;
-        color: #3182ce;
-        font-weight: bold;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #2c5282;
-          text-decoration: underline;
-        }
-
-        .icon {
-          margin-right: 5px;
-        }
-      }
+    &.university {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
     }
   }
 
-  /* Diseño Responsivo */
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 1fr;
+  .categoryLine {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(100, 116, 139, 0.3) 0%,
+      transparent 100%
+    );
+    margin-left: 1rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #38bdf8 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(56, 189, 248, 0.1);
+
+    &::before {
+      opacity: 1;
     }
+  }
+
+  // Variantes por categoría
+  &.professional:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  &.personal:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  &.university:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayContent {
+  display: flex;
+  gap: 1rem;
+}
+
+.githubButton {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+
+  &.professional {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  &.personal {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  &.university {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+}
+
+.content {
+  padding: 1.5rem;
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #f1f5f9;
+  }
+
+  p {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  span {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projectLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+
+  &:hover {
+    color: #7dd3fc;
+
+    .arrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+// Diseño Responsivo
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 0;
+  }
+
+  .header {
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .filters {
+    gap: 0.5rem;
+  }
+
+  .filterButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .categoryHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .categoryLine {
+    display: none;
+  }
+
+  .content {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .card {
+    margin: 0 0.5rem;
   }
 }
