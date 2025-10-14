@@ -13,7 +13,7 @@ import {
   FaBrain,
   FaLightbulb,
   FaHandshake,
-  FaChartLine
+  FaChartLine,
 } from "react-icons/fa";
 
 // Animaciones
@@ -22,9 +22,9 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const itemVariants = {
@@ -34,9 +34,9 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
-    }
-  }
+      ease: "easeOut",
+    },
+  },
 };
 
 const About = () => {
@@ -45,53 +45,90 @@ const About = () => {
       category: "Frontend Development",
       icon: FaCode,
       description: "Desarrollo de interfaces modernas y responsivas",
-      technologies: ["React", "Angular", "TypeScript", "HTML5", "CSS3", "JavaScript"],
-      color: "#3B82F6"
+      technologies: [
+        "React",
+        "Angular",
+        "TypeScript",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+      ],
+      color: "#3B82F6",
     },
     {
       category: "Backend Development",
       icon: FaServer,
       description: "Arquitecturas escalables y APIs robustas",
-      technologies: ["Java Spring Boot", "Node.js", "Python", "Express.js", "REST APIs"],
-      color: "#10B981"
+      technologies: [
+        "Java Spring Boot",
+        "Node.js",
+        "Python",
+        "Express.js",
+        "REST APIs",
+      ],
+      color: "#10B981",
     },
     {
       category: "Database Management",
       icon: FaDatabase,
       description: "Diseño y optimización de bases de datos",
       technologies: ["PostgreSQL", "MySQL", "MongoDB", "SQL", "NoSQL"],
-      color: "#8B5CF6"
+      color: "#8B5CF6",
     },
     {
       category: "Cloud & DevOps",
       icon: FaCloud,
       description: "Infraestructura cloud y despliegue continuo",
       technologies: ["AWS", "CI/CD", "Docker", "Git", "Vercel"],
-      color: "#F59E0B"
+      color: "#F59E0B",
     },
     {
       category: "Mobile Development",
       icon: FaMobileAlt,
       description: "Aplicaciones móviles nativas y cross-platform",
       technologies: ["React Native", "Flutter", "Ionic", "Expo"],
-      color: "#EF4444"
+      color: "#EF4444",
     },
     {
       category: "Tools & Methodologies",
       icon: FaTools,
       description: "Metodologías ágiles y herramientas de desarrollo",
       technologies: ["Git", "Scrum", "JIRA", "Figma", "Postman"],
-      color: "#6B7280"
-    }
+      color: "#6B7280",
+    },
   ];
 
   const softSkills = [
-    { icon: FaBrain, name: "Resolución de Problemas", description: "Análisis y solución efectiva de desafíos técnicos" },
-    { icon: FaUsers, name: "Trabajo en Equipo", description: "Colaboración efectiva en entornos multidisciplinarios" },
-    { icon: FaLightbulb, name: "Pensamiento Creativo", description: "Innovación en el desarrollo de soluciones" },
-    { icon: FaHandshake, name: "Comunicación", description: "Comunicación clara con equipos y stakeholders" },
-    { icon: FaRocket, name: "Adaptabilidad", description: "Rápida adaptación a nuevas tecnologías y entornos" },
-    { icon: FaChartLine, name: "Aprendizaje Continuo", description: "Actualización constante en tendencias tecnológicas" }
+    {
+      icon: FaBrain,
+      name: "Resolución de Problemas",
+      description: "Análisis y solución efectiva de desafíos técnicos",
+    },
+    {
+      icon: FaUsers,
+      name: "Trabajo en Equipo",
+      description: "Colaboración efectiva en entornos multidisciplinarios",
+    },
+    {
+      icon: FaLightbulb,
+      name: "Pensamiento Creativo",
+      description: "Innovación en el desarrollo de soluciones",
+    },
+    {
+      icon: FaHandshake,
+      name: "Comunicación",
+      description: "Comunicación clara con equipos y stakeholders",
+    },
+    {
+      icon: FaRocket,
+      name: "Adaptabilidad",
+      description: "Rápida adaptación a nuevas tecnologías y entornos",
+    },
+    {
+      icon: FaChartLine,
+      name: "Aprendizaje Continuo",
+      description: "Actualización constante en tendencias tecnológicas",
+    },
   ];
 
   const techIcons = [
@@ -104,7 +141,7 @@ const About = () => {
     { icon: "🍃", name: "MongoDB" },
     { icon: "☁️", name: "AWS" },
     { icon: "💙", name: "Flutter" },
-    { icon: "⚡", name: "Ionic" }
+    { icon: "⚡", name: "Ionic" },
   ];
 
   return (
@@ -117,15 +154,9 @@ const About = () => {
     >
       <div className={styles.container}>
         {/* Header Section */}
-        <motion.div
-          className={styles.header}
-          variants={itemVariants}
-        >
+        <motion.div className={styles.header} variants={itemVariants}>
           <h2>Acerca de Mí</h2>
           <div className={styles.underline}></div>
-          <p className={styles.subtitle}>
-            Desarrollador Full Stack apasionado por crear soluciones digitales innovadoras
-          </p>
         </motion.div>
 
         {/* Main Description */}
@@ -135,20 +166,21 @@ const About = () => {
         >
           <div className={styles.descriptionContent}>
             <p className={styles.description}>
-              Soy un <strong>Desarrollador Full Stack</strong> con experiencia en la creación de 
-              <strong> aplicaciones web y móviles modernas</strong>. Me especializo en desarrollar 
-              <strong> soluciones escalables y eficientes</strong> que combinan un 
-              <strong> frontend intuitivo</strong> con un <strong>backend robusto</strong>. 
-              Mi pasión es transformar ideas complejas en productos digitales funcionales y elegantes.
+              Soy un <strong>Desarrollador Full Stack</strong> con experiencia
+              en la creación de
+              <strong> aplicaciones web y móviles modernas</strong>. Me
+              especializo en desarrollar
+              <strong> soluciones escalables y eficientes</strong> que combinan
+              un
+              <strong> frontend intuitivo</strong> con un{" "}
+              <strong>backend robusto</strong>. Mi pasión es transformar ideas
+              complejas en productos digitales funcionales y elegantes.
             </p>
           </div>
         </motion.div>
 
         {/* Tech Stack */}
-        <motion.div
-          className={styles.techStackSection}
-          variants={itemVariants}
-        >
+        <motion.div className={styles.techStackSection} variants={itemVariants}>
           <h3>Tecnologías Principales</h3>
           <div className={styles.techGrid}>
             {techIcons.map((tech) => (
@@ -167,10 +199,7 @@ const About = () => {
         </motion.div>
 
         {/* Technical Skills */}
-        <motion.div
-          className={styles.skillsSection}
-          variants={itemVariants}
-        >
+        <motion.div className={styles.skillsSection} variants={itemVariants}>
           <h3>Habilidades Técnicas</h3>
           <div className={styles.skillsGrid}>
             {technicalSkills.map((skill) => (
@@ -181,7 +210,7 @@ const About = () => {
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div 
+                <div
                   className={styles.skillHeader}
                   style={{ borderLeftColor: skill.color }}
                 >
@@ -193,10 +222,7 @@ const About = () => {
                 <p className={styles.skillDescription}>{skill.description}</p>
                 <div className={styles.technologies}>
                   {skill.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className={styles.techTag}
-                    >
+                    <span key={tech} className={styles.techTag}>
                       {tech}
                     </span>
                   ))}
@@ -229,29 +255,6 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          className={styles.ctaSection}
-          variants={itemVariants}
-        >
-          <motion.div
-            className={styles.ctaCard}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h3>¿Listo para colaborar?</h3>
-            <p>Estoy siempre abierto a discutir nuevos proyectos y oportunidades desafiantes</p>
-            <motion.a
-              href="#contact"
-              className={styles.ctaButton}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Hablemos
-            </motion.a>
-          </motion.div>
         </motion.div>
       </div>
     </motion.section>
