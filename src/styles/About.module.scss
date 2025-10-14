@@ -1,97 +1,409 @@
 .about {
-  padding: 5rem 0;
-  background: linear-gradient(to right, #2c5282, #000);
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 
-  .container {
-    width: 90%;
-    max-width: 1000px;
-    text-align: center;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 10% 20%,
+        rgba(56, 189, 248, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 90% 80%,
+        rgba(139, 92, 246, 0.1) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
   }
+}
 
-  /* Estilos del título */
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+
   h2 {
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
   }
 
-  .description {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    color: #cbd5e0;
-    text-align: justify;
+  .underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
   }
+
+  .subtitle {
+    font-size: 1.3rem;
+    color: #cbd5e0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.descriptionSection {
+  margin-bottom: 5rem;
+}
+
+.descriptionContent {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+  }
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+  text-align: center;
+  margin: 0;
+
+  strong {
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+  }
+}
+
+.techStackSection {
+  margin-bottom: 5rem;
 
   h3 {
     font-size: 2rem;
-    font-weight: bold;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    color: #f0a500;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #f1f5f9;
+  }
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.5rem 1rem;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+  }
+}
+
+.techIcon {
+  font-size: 2.5rem;
+}
+
+.techItem span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.skillsSection {
+  margin-bottom: 5rem;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #f1f5f9;
+  }
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.skillCard {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  /* Habilidades Técnicas */
-  .skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.skillHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid;
+}
+
+.skillIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.skillHeader h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.skillDescription {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.softSkillsSection {
+  margin-bottom: 5rem;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #f1f5f9;
+  }
+}
+
+.softSkillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.softSkillCard {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+  }
+}
+
+.softSkillIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+}
+
+.softSkillCard h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #f1f5f9;
+}
+
+.softSkillCard p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ctaSection {
+  text-align: center;
+}
+
+.ctaCard {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.1) 0%,
+    rgba(139, 92, 246, 0.1) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaCard h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #f1f5f9;
+}
+
+.ctaCard p {
+  color: #cbd5e0;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+  transition: all 0.3s ease;
+}
+
+// Diseño Responsivo
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 0;
+  }
+
+  .header h2 {
+    font-size: 2.2rem;
+  }
+
+  .descriptionContent {
+    padding: 1.5rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
-    justify-content: center;
-    align-items: center;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .softSkillsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaCard {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.8rem;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .skillCard {
-    background: white;
-    color: black;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    justify-content: center;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    .icon {
-      font-size: 1.8rem;
-      color: #2c5282;
-    }
+    padding: 1.5rem;
   }
 
-  /* Habilidades Blandas */
-  .softSkills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  .softSkill {
-    font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-
-  /* Diseño Responsivo */
-  @media (max-width: 768px) {
-    .skills {
-      grid-template-columns: 1fr;
-    }
-
-    .softSkills {
-      flex-direction: column;
-    }
+  .softSkillCard {
+    padding: 1.5rem;
   }
 }
