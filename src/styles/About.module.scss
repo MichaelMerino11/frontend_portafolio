@@ -7,22 +7,15 @@
   overflow: hidden;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-        circle at 10% 20%,
-        rgba(56, 189, 248, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 90% 80%,
-        rgba(139, 92, 246, 0.1) 0%,
-        transparent 50%
-      );
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     pointer-events: none;
   }
 }
@@ -79,7 +72,7 @@
   overflow: hidden;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -146,10 +139,10 @@
 }
 
 .techIcon {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
-.techItem span {
+.techItem span:last-child {
   font-size: 0.9rem;
   font-weight: 500;
   color: #e2e8f0;
@@ -184,7 +177,7 @@
   overflow: hidden;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -247,7 +240,6 @@
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid rgba(56, 189, 248, 0.2);
-  backdrop-filter: blur(10px);
 }
 
 .softSkillsSection {
@@ -313,11 +305,7 @@
 }
 
 .ctaCard {
-  background: linear-gradient(
-    135deg,
-    rgba(56, 189, 248, 0.1) 0%,
-    rgba(139, 92, 246, 0.1) 100%
-  );
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 3rem 2rem;
@@ -352,6 +340,10 @@
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
   transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+  }
 }
 
 // Diseño Responsivo
