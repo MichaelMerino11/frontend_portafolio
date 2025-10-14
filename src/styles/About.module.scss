@@ -1,21 +1,28 @@
 .about {
   padding: 6rem 0;
-  background: white;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   color: white;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    background: radial-gradient(
+        circle at 10% 20%,
+        rgba(56, 189, 248, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 90% 80%,
+        rgba(139, 92, 246, 0.1) 0%,
+        transparent 50%
+      );
     pointer-events: none;
   }
 }
@@ -72,7 +79,7 @@
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -177,7 +184,7 @@
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -305,7 +312,11 @@
 }
 
 .ctaCard {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.1) 0%,
+    rgba(139, 92, 246, 0.1) 100%
+  );
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 3rem 2rem;
