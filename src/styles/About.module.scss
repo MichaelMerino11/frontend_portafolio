@@ -146,10 +146,10 @@
 }
 
 .techIcon {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
-.techItem span {
+.techItem span:last-child {
   font-size: 0.9rem;
   font-weight: 500;
   color: #e2e8f0;
@@ -247,7 +247,6 @@
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid rgba(56, 189, 248, 0.2);
-  backdrop-filter: blur(10px);
 }
 
 .softSkillsSection {
@@ -352,6 +351,10 @@
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
   transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+  }
 }
 
 // Diseño Responsivo
