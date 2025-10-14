@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import styles from "../styles/Contact.module.scss";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaPaperPlane,
+  FaUser,
+  FaMessage,
+} from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,105 +38,241 @@ const Contact = () => {
         }
       );
 
-      const data = await response.json(); // 🔹 Convertimos la respuesta en JSON
+      const data = await response.json();
 
       if (response.ok) {
-        setStatusMessage("✅ Se ha enviado exitosamente");
+        setStatusMessage("✅ Mensaje enviado exitosamente");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        // 🔹 Muestra los mensajes de error específicos
-        setStatusMessage(`❌ ${data.errors.map((err) => err.msg).join(". ")}`);
+        setStatusMessage(
+          `❌ ${
+            data.errors?.map((err) => err.msg).join(". ") ||
+            "Error al enviar el mensaje"
+          }`
+        );
       }
     } catch (error) {
-      setStatusMessage("❌ Error al conectar con el servidor: " + error);
+      setStatusMessage("❌ Error al conectar con el servidor");
     }
 
     setLoading(false);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const socialLinks = [
+    {
+      icon: FaEnvelope,
+      label: "Email",
+      value: "maikijunior9@gmail.com",
+      href: "mailto:maikijunior9@gmail.com",
+      color: "#EA4335",
+    },
+    {
+      icon: FaLinkedin,
+      label: "LinkedIn",
+      value: "Michael Merino",
+      href: "https://www.linkedin.com/in/michael-merino-0b7871207/",
+      color: "#0077B5",
+    },
+    {
+      icon: FaGithub,
+      label: "GitHub",
+      value: "MichaelMerino11",
+      href: "https://github.com/MichaelMerino11",
+      color: "#333",
+    },
+  ];
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      id="contact"
+      className={styles.contact}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
-      <section id="contact" className={styles.contact}>
-        <div className={styles.container}>
-          {/* Sección del formulario */}
-          <div className={styles.formContainer}>
-            <h2>Contacto</h2>
-            <form onSubmit={handleSubmit}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name">Nombre</label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Tu nombre"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Tu email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="message">Mensaje</label>
-                <textarea
-                  id="message"
-                  placeholder="Tu mensaje"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" disabled={loading}>
-                {loading ? "Enviando..." : "Enviar Mensaje"}
-              </button>
-              {statusMessage && (
-                <p className={styles.statusMessage}>{statusMessage}</p>
-              )}
-            </form>
-          </div>
+      <div className={styles.container}>
+        {/* Header Section */}
+        <motion.div className={styles.header} variants={itemVariants}>
+          <h2>Contacto</h2>
+          <div className={styles.underline}></div>
+          <p className={styles.subtitle}>
+            ¿Tienes un proyecto en mente? Hablemos y hagámoslo realidad
+          </p>
+        </motion.div>
 
-          {/* Sección de información de contacto */}
-          <div className={styles.infoContainer}>
-            <h3>También puedes contactarme en:</h3>
-            <div className={styles.infoItem}>
-              <FaEnvelope size={24} className={styles.icon} />
-              <p>maikijunior9@gmail.com</p>
-            </div>
-            <div className={styles.infoItem}>
-              <FaLinkedin size={24} className={styles.icon} />
-              <a
-                href="https://www.linkedin.com/in/michael-merino-0b7871207/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-            </div>
-            <div className={styles.infoItem}>
-              <FaGithub size={24} className={styles.icon} />
-              <a
-                href="https://github.com/MichaelMerino11"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
+        <div className={styles.content}>
+          {/* Form Section */}
+          <motion.div className={styles.formSection} variants={itemVariants}>
+            <motion.div
+              className={styles.formContainer}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={styles.formHeader}>
+                <FaPaperPlane className={styles.formIcon} />
+                <h3>Envíame un Mensaje</h3>
+                <p>Responderé lo antes posible</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className={styles.form}>
+                <motion.div
+                  className={styles.formGroup}
+                  whileFocus={{ scale: 1.02 }}
+                >
+                  <div className={styles.inputContainer}>
+                    <FaUser className={styles.inputIcon} />
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder=" "
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label htmlFor="name">Nombre</label>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className={styles.formGroup}
+                  whileFocus={{ scale: 1.02 }}
+                >
+                  <div className={styles.inputContainer}>
+                    <FaEnvelope className={styles.inputIcon} />
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder=" "
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label htmlFor="email">Email</label>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className={styles.formGroup}
+                  whileFocus={{ scale: 1.02 }}
+                >
+                  <div className={styles.inputContainer}>
+                    <FaMessage className={styles.inputIcon} />
+                    <textarea
+                      id="message"
+                      placeholder=" "
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
+                    <label htmlFor="message">Mensaje</label>
+                  </div>
+                </motion.div>
+
+                <motion.button
+                  type="submit"
+                  disabled={loading}
+                  className={styles.submitButton}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {loading ? (
+                    <div className={styles.loadingSpinner}></div>
+                  ) : (
+                    <>
+                      <FaPaperPlane className={styles.buttonIcon} />
+                      Enviar Mensaje
+                    </>
+                  )}
+                </motion.button>
+
+                {statusMessage && (
+                  <motion.p
+                    className={`${styles.statusMessage} ${
+                      statusMessage.includes("✅")
+                        ? styles.success
+                        : styles.error
+                    }`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {statusMessage}
+                  </motion.p>
+                )}
+              </form>
+            </motion.div>
+          </motion.div>
+
+          {/* Info Section */}
+          <motion.div className={styles.infoSection} variants={itemVariants}>
+            <motion.div
+              className={styles.infoContainer}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={styles.infoHeader}>
+                <h3>Información de Contacto</h3>
+                <p>Conectemos a través de estas plataformas</p>
+              </div>
+
+              <div className={styles.socialLinks}>
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
+                    style={{ "--social-color": social.color }}
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    transition={{ duration: 0.2, delay: index * 0.1 }}
+                  >
+                    <div
+                      className={styles.socialIcon}
+                      style={{ backgroundColor: social.color }}
+                    >
+                      <social.icon />
+                    </div>
+                    <div className={styles.socialInfo}>
+                      <span className={styles.socialLabel}>{social.label}</span>
+                      <span className={styles.socialValue}>{social.value}</span>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+
+              <div className={styles.contactNote}>
+                <p>
+                  Siempre estoy abierto a discutir nuevas oportunidades,
+                  proyectos interesantes o simplemente conversar sobre
+                  tecnología.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </div>
     </motion.section>
   );
 };
