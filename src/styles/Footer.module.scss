@@ -1,118 +1,295 @@
 .footer {
-  background: linear-gradient(to right, #2c5282, #000);
+  background: #0a0f1c;
   color: white;
-  padding: 3rem 0;
-  text-align: center;
+  padding: 4rem 0 0 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #38bdf8,
+      #8b5cf6,
+      transparent
+    );
+  }
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+
+  .sectionIcon {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0;
+  }
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 10px;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+  }
+}
+
+.techIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.techItem span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.link {
+  color: #cbd5e0;
+  text-decoration: none;
   font-size: 1rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: #38bdf8;
+    padding-left: 0.5rem;
+
+    &::before {
+      width: 20px;
+    }
+  }
+}
+
+.socialText {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.socialGrid {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--social-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+
+    &::before {
+      opacity: 0.1;
+    }
+
+    .socialIcon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.socialIcon {
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.bottom {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(100, 116, 139, 0.2);
+  padding: 2rem 0;
+}
+
+.bottomContent {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.madeWith {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+
+  .heartIcon {
+    color: #ef4444;
+    font-size: 0.8rem;
+    animation: heartbeat 2s infinite;
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+// Diseño Responsivo
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 0 0;
+  }
 
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    max-width: 1200px;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .sectionHeader {
+    justify-content: center;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 300px;
     margin: 0 auto;
-    flex-wrap: wrap;
   }
 
-  .technologies,
-  .links,
-  .social {
-    flex: 1;
-    min-width: 220px;
-    margin: 15px;
+  .socialGrid {
+    justify-content: center;
   }
 
-  h3,
-  h4 {
-    margin-bottom: 12px;
-    font-size: 1.3rem;
-    color: #f0a500;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #cbd5e0;
-  }
-
-  /* Tecnologías Utilizadas */
-  .technologies ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1rem;
-    color: #cbd5e0;
-
-    li {
-      margin-bottom: 8px;
-    }
-  }
-
-  /* Enlaces */
-  .links ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      margin-bottom: 10px;
-
-      a {
-        color: #cbd5e0;
-        text-decoration: none;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #f0a500;
-        }
-      }
-    }
-  }
-
-  /* Redes Sociales */
-  .social {
-    display: flex;
+  .bottomContent {
     flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .linksList {
     align-items: center;
+  }
+}
 
-    .icons {
-      display: flex;
-      gap: 15px;
-
-      a {
-        font-size: 1.8rem;
-        color: white;
-        transition: transform 0.3s ease, color 0.3s ease;
-
-        &:hover {
-          transform: scale(1.2);
-          color: #f0a500;
-        }
-      }
-    }
+@media (max-width: 480px) {
+  .techGrid {
+    grid-template-columns: 1fr;
   }
 
-  /* Derechos Reservados */
-  .bottom {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    padding-top: 15px;
+  .socialGrid {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  /* Diseño Responsivo */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: center; /* 🔹 Centra todo en móvil */
-      text-align: center;
-    }
-
-    .technologies,
-    .links,
-    .social {
-      text-align: center;
-    }
-
-    .social .icons {
-      justify-content: center;
-    }
+  .socialLink {
+    width: 45px;
+    height: 45px;
   }
 }
