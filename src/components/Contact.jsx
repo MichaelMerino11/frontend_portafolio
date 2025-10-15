@@ -44,20 +44,20 @@ const Contact = () => {
         setStatusMessage("✅ Mensaje enviado exitosamente");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatusMessage(
-          `❌ ${
-            data.errors?.map((err) => err.msg).join(". ") ||
-            "Error al enviar el mensaje"
-          }`
-        );
+        const errorMessage =
+          data.errors?.map((err) => err.msg).join(". ") ||
+          "Error al enviar el mensaje";
+        setStatusMessage(`❌ ${errorMessage}`);
       }
-    } catch (error) {
+    } catch {
+      // Eliminamos la variable 'error' que no se usaba
       setStatusMessage("❌ Error al conectar con el servidor");
     }
 
     setLoading(false);
   };
 
+  // Animaciones simplificadas
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -125,11 +125,7 @@ const Contact = () => {
         <div className={styles.content}>
           {/* Form Section */}
           <motion.div className={styles.formSection} variants={itemVariants}>
-            <motion.div
-              className={styles.formContainer}
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div className={styles.formContainer}>
               <div className={styles.formHeader}>
                 <FaPaperPlane className={styles.formIcon} />
                 <h3>Envíame un Mensaje</h3>
@@ -137,10 +133,7 @@ const Contact = () => {
               </div>
 
               <form onSubmit={handleSubmit} className={styles.form}>
-                <motion.div
-                  className={styles.formGroup}
-                  whileFocus={{ scale: 1.02 }}
-                >
+                <div className={styles.formGroup}>
                   <div className={styles.inputContainer}>
                     <FaUser className={styles.inputIcon} />
                     <input
@@ -153,12 +146,9 @@ const Contact = () => {
                     />
                     <label htmlFor="name">Nombre</label>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  className={styles.formGroup}
-                  whileFocus={{ scale: 1.02 }}
-                >
+                <div className={styles.formGroup}>
                   <div className={styles.inputContainer}>
                     <FaEnvelope className={styles.inputIcon} />
                     <input
@@ -171,12 +161,9 @@ const Contact = () => {
                     />
                     <label htmlFor="email">Email</label>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  className={styles.formGroup}
-                  whileFocus={{ scale: 1.02 }}
-                >
+                <div className={styles.formGroup}>
                   <div className={styles.inputContainer}>
                     <FaMessage className={styles.inputIcon} />
                     <textarea
@@ -188,7 +175,7 @@ const Contact = () => {
                     ></textarea>
                     <label htmlFor="message">Mensaje</label>
                   </div>
-                </motion.div>
+                </div>
 
                 <motion.button
                   type="submit"
@@ -221,16 +208,12 @@ const Contact = () => {
                   </motion.p>
                 )}
               </form>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Info Section */}
           <motion.div className={styles.infoSection} variants={itemVariants}>
-            <motion.div
-              className={styles.infoContainer}
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div className={styles.infoContainer}>
               <div className={styles.infoHeader}>
                 <h3>Información de Contacto</h3>
                 <p>Conectemos a través de estas plataformas</p>
@@ -244,7 +227,6 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.socialLink}
-                    style={{ "--social-color": social.color }}
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2, delay: index * 0.1 }}
                   >
@@ -269,7 +251,7 @@ const Contact = () => {
                   tecnología.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
