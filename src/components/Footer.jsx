@@ -115,11 +115,7 @@ const Footer = () => {
       <div className={styles.bottom}>
         <div className={styles.bottomContent}>
           <p className={styles.copyright}>
-            &copy; 2024 Michael Merino. Todos los derechos reservados.
-          </p>
-          <p className={styles.madeWith}>
-            Hecho con <FaHeart className={styles.heartIcon} /> usando React &
-            Vite
+            &copy; 2025 Michael Merino. Todos los derechos reservados.
           </p>
         </div>
       </div>
