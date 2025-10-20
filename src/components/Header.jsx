@@ -35,26 +35,6 @@ const Header = () => {
     { path: "/contact", label: "Contacto" },
   ];
 
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      y: -20,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut",
-      },
-    },
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   const itemVariants = {
     closed: { opacity: 0, x: -20 },
     open: { opacity: 1, x: 0 },
@@ -91,7 +71,7 @@ const Header = () => {
         {/* Menú de navegación */}
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
           <ul>
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <motion.li
                 key={item.path}
                 variants={itemVariants}
