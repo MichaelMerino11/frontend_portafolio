@@ -14,6 +14,7 @@ import {
   FaLightbulb,
   FaHandshake,
   FaChartLine,
+  FaGraduationCap
 } from "react-icons/fa";
 
 import reactIcon from "../assets/images/iconos/react3.png";
@@ -153,7 +154,14 @@ const About = () => {
       name: "Aprendizaje Continuo",
       description: "Actualización constante en tendencias tecnológicas",
     },
+    {
+      icon: FaGraduationCap,
+      name: "Autodidacta",
+      description:
+        "Capacidad para aprender nuevas tecnologías de manera independiente",
+    },
   ];
+
   /*
   const techIcons = [
     { icon: "⚛️", name: "React" },
