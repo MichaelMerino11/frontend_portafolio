@@ -15,6 +15,7 @@ import br1 from "../assets/images/brasil/br1.jpeg";
 import force from "../assets/images/force/force.jpeg";
 import nexus from "../assets/images/nexus/nexus.jpeg";
 import jcs from "../assets/images/jcs/jcs.jpeg";
+import expoClean from "../assets/images/jcs/expo.png";
 
 // Animaciones
 const containerVariants = {
@@ -40,6 +41,27 @@ const itemVariants = {
 };
 
 const professionalProjects = [
+  {
+    title: "EXPO CLEAN Ecuador 2025",
+    description:
+      "Sitio web oficial para la feria internacional de limpieza e higiene industrial EXPO CLEAN Ecuador 2025. Desarrollo completo en WordPress con diseño responsive, gestión de expositores, programa de eventos y sistema de registro en línea.",
+    technologies: [
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "CSS3",
+      "HTML5",
+      "cPanel",
+      "Responsive Design",
+      "SEO Optimization",
+      "Contact Forms",
+    ],
+    images: [expoClean],
+    live: "https://expocleanecuador.com.ec/es/",
+    github: null, // No tiene repositorio GitHub
+    category: "professional",
+  },
   {
     title: "Jimcorpservi CÍA.LTDA",
     description:
@@ -286,7 +308,7 @@ const Projects = () => {
 };
 
 // Componente de Tarjeta de Proyecto
-const ProjectCard = ({ project}) => {
+const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -311,23 +333,34 @@ const ProjectCard = ({ project}) => {
           transition={{ duration: 0.3 }}
         >
           <div className={styles.overlayContent}>
-            <motion.a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.githubButton}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaGithub />
-            </motion.a>
+            {/* Mostrar botón de GitHub solo si existe */}
+            {project.github && (
+              <motion.a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.githubButton}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaGithub />
+              </motion.a>
+            )}
+            {/* Mostrar botón de Live Demo si existe */}
+            {project.live && (
+              <motion.a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.liveButton}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaExternalLinkAlt />
+              </motion.a>
+            )}
           </div>
         </motion.div>
-        <div className={`${styles.categoryBadge} ${styles[project.category]}`}>
-          {project.category === "professional" && "💼 Profesional"}
-          {project.category === "personal" && "🚀 Personal"}
-          {project.category === "university" && "🎓 Universitario"}
-        </div>
       </div>
 
       <div className={styles.content}>
@@ -353,16 +386,33 @@ const ProjectCard = ({ project}) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.projectLink}
-          >
-            <FaGithub className={styles.icon} />
-            Ver Código
-            <FiArrowRight className={styles.arrow} />
-          </a>
+          {/* Mostrar enlace de GitHub solo si existe */}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.projectLink}
+            >
+              <FaGithub className={styles.icon} />
+              Ver Código
+              <FiArrowRight className={styles.arrow} />
+            </a>
+          )}
+
+          {/* Mostrar enlace de Live Demo si existe */}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.projectLink}
+            >
+              <FaExternalLinkAlt className={styles.icon} />
+              Ver Sitio Web
+              <FiArrowRight className={styles.arrow} />
+            </a>
+          )}
         </motion.div>
       </div>
     </motion.div>

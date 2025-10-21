@@ -250,10 +250,10 @@
   gap: 1rem;
 }
 
-.githubButton {
+.githubButton,
+.liveButton {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -262,6 +262,14 @@
   text-decoration: none;
   font-size: 1.2rem;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.githubButton {
+  background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+}
+
+.liveButton {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 .categoryBadge {
@@ -331,8 +339,29 @@
 
 .actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .projectLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    flex: 1;
+    min-width: fit-content;
+
+    &:hover {
+      color: #7dd3fc;
+
+      .arrow {
+        transform: translateX(3px);
+      }
+    }
+  }
 }
 
 .projectLink {
