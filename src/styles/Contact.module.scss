@@ -1,5 +1,5 @@
 .contact {
-  padding: 6rem 0;
+  padding: 6rem 0; 
   background: #0a0f1c;
   color: white;
   min-height: 100vh;
@@ -125,6 +125,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-right: 30px;
 }
 
 .formGroup {
@@ -171,7 +172,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1rem;
-
+  margin-left: 25px;
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
@@ -232,25 +233,15 @@
 }
 
 .infoContainer {
-  background: rgba(30, 41, 59, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+//  background: rgba(30, 41, 59, 0.8);
+//  backdrop-filter: blur(10px);
+//  border-radius: 20px;
   padding: 2.5rem;
-  border: 1px solid rgba(100, 116, 139, 0.2);
+//  border: 1px solid rgba(100, 116, 139, 0.2);
   width: 100%;
   max-width: 500px;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #8b5cf6, #38bdf8);
-  }
 }
 
 .infoHeader {
