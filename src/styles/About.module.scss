@@ -66,23 +66,13 @@
 }
 
 .descriptionContent {
-  background: rgba(30, 41, 59, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 2.5rem;
-  border: 1px solid rgba(100, 116, 139, 0.2);
+  //  background: rgba(30, 41, 59, 0.6);
+  //  backdrop-filter: blur(10px);
+  //  border-radius: 20px;
+  //  padding: 2.5rem;
+  //  border: 1px solid rgba(100, 116, 139, 0.2);
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #38bdf8, #8b5cf6);
-  }
 }
 
 .description {
@@ -111,6 +101,106 @@
     margin-bottom: 2.5rem;
     color: #f1f5f9;
   }
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carouselContainer {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.maskLeft,
+.maskRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.maskLeft {
+  left: 0;
+  background: linear-gradient(90deg, #0a0f1c 0%, transparent 100%);
+}
+
+.maskRight {
+  right: 0;
+  background: linear-gradient(90deg, transparent 0%, #0a0f1c 100%);
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 2rem;
+  cursor: grab;
+  width: max-content;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.carouselItem {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+//  background: rgba(30, 41, 59, 0.8);
+//  border-radius: 16px;
+//  border: 1px solid rgba(100, 116, 139, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.techLogo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+
+  .carouselItem:hover & {
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+  }
+}
+
+.techName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  text-align: center;
+}
+
+.dragHint {
+  text-align: center;
+  margin-top: 1rem;
+
+  span {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+//    background: rgba(30, 41, 59, 0.8);
+    padding: 0.5rem 1rem;
+//    border-radius: 20px;
+//    border: 1px solid rgba(100, 116, 139, 0.3);
+    backdrop-filter: blur(10px);
+  }
+}
+
+// Pausar animación al hacer hover
+.carouselContainer:hover .carouselTrack:not(:active) {
+  animation-play-state: paused;
 }
 
 .techGrid {
@@ -387,6 +477,41 @@
   .ctaCard {
     padding: 2rem 1.5rem;
   }
+
+  .carouselContainer {
+    &::before,
+    &::after {
+      width: 50px;
+    }
+  }
+
+  .maskLeft,
+  .maskRight {
+    width: 80px;
+  }
+
+  .carouselTrack {
+    gap: 1.5rem;
+  }
+
+  .carouselItem {
+    min-width: 100px;
+    padding: 1rem 0.8rem;
+
+    .techLogo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .techName {
+      font-size: 0.8rem;
+    }
+  }
+
+  .dragHint span {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -404,5 +529,35 @@
 
   .softSkillCard {
     padding: 1.5rem;
+  }
+
+  .maskLeft,
+  .maskRight {
+    width: 50px;
+  }
+
+  .carouselContainer {
+    &::before,
+    &::after {
+      width: 30px;
+    }
+  }
+
+  .carouselTrack {
+    gap: 1rem;
+  }
+
+  .carouselItem {
+    min-width: 85px;
+    padding: 0.8rem 0.5rem;
+
+    .techLogo {
+      width: 35px;
+      height: 35px;
+    }
+
+    .techName {
+      font-size: 0.75rem;
+    }
   }
 }

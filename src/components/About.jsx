@@ -16,6 +16,17 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 
+import reactIcon from "../assets/images/iconos/react3.png";
+import angularIcon from "../assets/images/iconos/angular.png";
+import javaIcon from "../assets/images/iconos/java2.png";
+import nodeIcon from "../assets/images/iconos/node.png";
+import pythonIcon from "../assets/images/iconos/python.png";
+import postgresqlIcon from "../assets/images/iconos/postgresql.png";
+import mongoIcon from "../assets/images/iconos/mongo3.png";
+import awsIcon from "../assets/images/iconos/aws.png";
+import flutterIcon from "../assets/images/iconos/flutter2.png";
+import ionicIcon from "../assets/images/iconos/ionic2.png";
+
 // Animaciones
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -40,6 +51,19 @@ const itemVariants = {
 };
 
 const About = () => {
+  const techLogos = [
+    { id: 1, name: "React", image: reactIcon },
+    { id: 2, name: "Angular", image: angularIcon },
+    { id: 3, name: "Java", image: javaIcon },
+    { id: 4, name: "Node.js", image: nodeIcon },
+    { id: 5, name: "Python", image: pythonIcon },
+    { id: 6, name: "PostgreSQL", image: postgresqlIcon },
+    { id: 7, name: "MongoDB", image: mongoIcon },
+    { id: 8, name: "AWS", image: awsIcon },
+    { id: 9, name: "Flutter", image: flutterIcon },
+    { id: 10, name: "Ionic", image: ionicIcon },
+  ];
+
   const technicalSkills = [
     {
       category: "Frontend Development",
@@ -130,7 +154,7 @@ const About = () => {
       description: "Actualización constante en tendencias tecnológicas",
     },
   ];
-
+  /*
   const techIcons = [
     { icon: "⚛️", name: "React" },
     { icon: "🅰️", name: "Angular" },
@@ -143,7 +167,7 @@ const About = () => {
     { icon: "💙", name: "Flutter" },
     { icon: "⚡", name: "Ionic" },
   ];
-
+*/
   return (
     <motion.section
       id="about"
@@ -182,20 +206,7 @@ const About = () => {
         {/* Tech Stack */}
         <motion.div className={styles.techStackSection} variants={itemVariants}>
           <h3>Tecnologías Principales</h3>
-          <div className={styles.techGrid}>
-            {techIcons.map((tech) => (
-              <motion.div
-                key={tech.name}
-                className={styles.techItem}
-                variants={itemVariants}
-                whileHover={{ scale: 1.1, y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span>{tech.name}</span>
-              </motion.div>
-            ))}
-          </div>
+          <TechCarousel logos={techLogos} />
         </motion.div>
 
         {/* Technical Skills */}
@@ -238,6 +249,8 @@ const About = () => {
           variants={itemVariants}
         >
           <h3>Habilidades Interpersonales</h3>
+          <div className={styles.underline}></div>
+
           <div className={styles.softSkillsGrid}>
             {softSkills.map((skill) => (
               <motion.div
@@ -258,6 +271,91 @@ const About = () => {
         </motion.div>
       </div>
     </motion.section>
+  );
+};
+
+// Componente del Carrusel
+const TechCarousel = ({ logos }) => {
+  const [isDragging, setIsDragging] = React.useState(false);
+
+  return (
+    <div className={styles.carouselWrapper}>
+      <div className={styles.carouselContainer}>
+        {/* Máscara izquierda */}
+        <div className={styles.maskLeft}></div>
+
+        {/* Máscara derecha */}
+        <div className={styles.maskRight}></div>
+
+        <motion.div
+          className={styles.carouselTrack}
+          drag="x"
+          dragConstraints={{
+            left: -(logos.length * 140 + logos.length * 32),
+            right: 0,
+          }}
+          dragElastic={0.1}
+          dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+          whileTap={{ cursor: "grabbing" }}
+          onDragStart={() => setIsDragging(true)}
+          onDragEnd={() => setIsDragging(false)}
+          animate={!isDragging ? "animate" : "idle"}
+          variants={{
+            animate: {
+              x: [0, -(logos.length * 140 + logos.length * 32)],
+              transition: {
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              },
+            },
+            idle: {},
+          }}
+        >
+          {/* Primera copia */}
+          {logos.map((tech, index) => (
+            <motion.div
+              key={`first-${tech.id}-${index}`}
+              className={styles.carouselItem}
+              whileHover={{ scale: 1.1, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={tech.image}
+                alt={tech.name}
+                className={styles.techLogo}
+              />
+              <span className={styles.techName}>{tech.name}</span>
+            </motion.div>
+          ))}
+
+          {/* Segunda copia (para efecto infinito perfecto) */}
+          {logos.map((tech, index) => (
+            <motion.div
+              key={`second-${tech.id}-${index}`}
+              className={styles.carouselItem}
+              whileHover={{ scale: 1.1, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={tech.image}
+                alt={tech.name}
+                className={styles.techLogo}
+              />
+              <span className={styles.techName}>{tech.name}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Indicador de drag */}
+      <div className={styles.dragHint}>
+        <span>← Desliza para explorar →</span>
+      </div>
+    </div>
   );
 };
 
