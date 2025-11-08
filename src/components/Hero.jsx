@@ -57,6 +57,7 @@ const Hero = () => {
         {/* Sección Izquierda - Texto, Botones y Redes Sociales */}
         <motion.div className={styles.textSection} variants={itemVariants}>
           <motion.div className={styles.content} variants={containerVariants}>
+
             <motion.h1 variants={itemVariants}>
               Michael Andrés{" "}
               <span className={styles.highlight}>Merino Romero</span>
