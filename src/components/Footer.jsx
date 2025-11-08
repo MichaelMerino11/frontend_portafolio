@@ -217,11 +217,11 @@ const Footer = () => {
             </p>
           </div>
           <div className={styles.legalLinks}>
-            <a href="#privacy" className={styles.legalLink}>
+            <a href="/privacy" className={styles.legalLink}>
               Política de Privacidad
             </a>
             <span className={styles.separator}>•</span>
-            <a href="#terms" className={styles.legalLink}>
+            <a href="/terms" className={styles.legalLink}>
               Términos de Servicio
             </a>
           </div>
